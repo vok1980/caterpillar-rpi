@@ -24,14 +24,15 @@ int main(void)
     //2.Motor Initialization
     Motor_Init();
 
-    printf("Motor_Run\r\n");
-    Motor_Run(MOTORA, FORWARD, 100);
-    Motor_Run(MOTORB, BACKWARD, 100);
 
     // Exception handling:ctrl + c
     signal(SIGINT, Handler);
     while(1) {
-
+        int speedA, speedB;
+        scanf("%d %d", &speedB, &speedA);
+        printf("Motor_Run\r\n");
+        Motor_Run(MOTORA, speedA > 0 ? FORWARD : BACKWARD, abs(speedA));
+        Motor_Run(MOTORB, speedB > 0 ? FORWARD : BACKWARD, abs(speedB));
     }
 
     //3.System Exit
