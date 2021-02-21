@@ -16,6 +16,8 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_run (
     REQUIRES
         boost/1.75.0
+    OPTIONS
+        boost:header_only=True
     BASIC_SETUP
     BUILD missing)
 
