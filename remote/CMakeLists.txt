@@ -18,3 +18,6 @@ conan_cmake_run (
         boost/1.75.0
     BASIC_SETUP
     BUILD missing)
+
+add_subdirectory (client)
+add_subdirectory (server)
