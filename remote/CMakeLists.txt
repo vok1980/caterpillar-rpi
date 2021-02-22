@@ -12,7 +12,6 @@ endif()
 
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 
-
 conan_cmake_run (
     REQUIRES
         boost/1.75.0
@@ -21,5 +20,12 @@ conan_cmake_run (
     BASIC_SETUP
     BUILD missing)
 
-add_subdirectory (client)
+string(REGEX MATCH "^arm" ARM ${CMAKE_SYSTEM_PROCESSOR})
+
+# Check not RPI
+if (NOT (UNIX AND ARM AND NOT ANDROID))
+    add_subdirectory (client)
+endif()
+
 add_subdirectory (server)
+
