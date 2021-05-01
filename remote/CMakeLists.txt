@@ -18,7 +18,11 @@ conan_cmake_run (
     OPTIONS
         boost:header_only=True
     BASIC_SETUP
-    BUILD missing)
+    CMAKE_TARGETS
+    BUILD
+        missing
+)
+
 
 string(REGEX MATCH "^arm" ARM ${CMAKE_SYSTEM_PROCESSOR})
 
