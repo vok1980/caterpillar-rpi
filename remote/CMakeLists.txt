@@ -15,6 +15,7 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_run (
     REQUIRES
         boost/1.75.0
+        protobuf/3.15.5
     OPTIONS
         boost:header_only=True
     BASIC_SETUP
@@ -26,10 +27,10 @@ conan_cmake_run (
 
 string(REGEX MATCH "^arm" ARM ${CMAKE_SYSTEM_PROCESSOR})
 
+add_subdirectory (messages)
+add_subdirectory (server)
+
 # Check not RPI
 if (NOT (UNIX AND ARM AND NOT ANDROID))
     add_subdirectory (client)
 endif()
-
-add_subdirectory (server)
-

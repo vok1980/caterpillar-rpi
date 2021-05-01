@@ -23,6 +23,7 @@ target_link_libraries(client
         Qt::Gui
         Qt::Network
         Qt::Quick
+        messages
 )
 
 set(qml_resource_files

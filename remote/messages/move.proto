@@ -1,0 +1,5 @@
+
+message Move {
+  required int32 left = 1;
+  required int32 right = 2;
+}
