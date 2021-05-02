@@ -19,6 +19,12 @@ Window {
         id: controller
     }
 
+    NetworkClient {
+        id: netclient
+        left: controller.started ? controller.left : 0
+        right: controller.started ? controller.right : 0
+    }
+
     Item {
         anchors.fill: parent
 
