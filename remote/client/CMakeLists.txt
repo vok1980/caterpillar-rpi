@@ -15,6 +15,8 @@ find_package(Qt6 COMPONENTS Quick)
 
 qt_add_executable(client
     main.cpp
+    movecontroller.h
+    movecontroller.cpp
 )
 
 target_link_libraries(client
@@ -28,6 +30,7 @@ target_link_libraries(client
 
 set(qml_resource_files
     "main.qml"
+    "SpeedRegulator.qml"
 )
 
 qt6_add_resources(client "qml"
