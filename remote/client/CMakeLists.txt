@@ -17,6 +17,8 @@ qt_add_executable(client
     main.cpp
     movecontroller.h
     movecontroller.cpp
+    networkclient.h
+    networkclient.cpp
 )
 
 target_link_libraries(client
@@ -25,6 +27,7 @@ target_link_libraries(client
         Qt::Gui
         Qt::Network
         Qt::Quick
+        CONAN_PKG::boost
         messages
 )
 
