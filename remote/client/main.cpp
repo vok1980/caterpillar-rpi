@@ -4,7 +4,6 @@
 #include "movecontroller.h"
 #include "networkclient.h"
 
-
 int main(int argc, char* argv[])
 {
     QGuiApplication app(argc, argv);
