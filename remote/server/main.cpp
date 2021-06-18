@@ -3,6 +3,8 @@
 
 #include <boost/asio.hpp>
 
+#include "messages/move.pb.h"
+
 using boost::asio::ip::tcp;
 
 class session
@@ -26,6 +28,11 @@ private:
             boost::asio::buffer(data_),
             [this, self](const boost::system::error_code& ec, std::size_t bytes_transferred) {
                 if (!ec) {
+                    std::cerr << "bytes_transferred = " << bytes_transferred << std::endl;
+                    Move message;
+                    message.ParseFromArray(data_.data(), bytes_transferred);
+                    std::cout << message.left() << std::endl;
+                    std::cout << message.right() << std::endl;
                 }
             });
     }
