@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+/remote/build
+/build
+/remote/build*
+/remote/client/CMakeLists.txt.user
+/build-*
+/remote/CMakeLists.txt.user
